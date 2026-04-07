@@ -10,11 +10,13 @@
     <meta property="og:description" content="Builder, physics & math student at Johns Hopkins, founder of Altera Labs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://peterseelman.com">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <style>
         /* Paper Theme (Forced - No automatic dark mode) */
         :root {
-            --bg-color: #e8dcc8;
+            --bg-color: #f0e6d0;
             --text-color: #2c2925;
             --text-muted: #736c61;
             --link-color: #d93c18;
@@ -115,26 +117,26 @@
             color: var(--text-muted);
         }
 
-        .item {
-            margin-bottom: 1.5rem;
-        }
-
-        .item-title {
-            font-weight: bold;
-        }
-
-        .item-note {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-top: 0.25rem;
-        }
-
         .track {
             margin-bottom: 0.5rem;
         }
 
         .track iframe {
             border-radius: 8px;
+        }
+
+        .toggle-link {
+            display: inline-block;
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-bottom: none;
+            cursor: pointer;
+        }
+
+        .toggle-link:hover {
+            color: var(--text-color);
+            border-bottom: none;
         }
 
         a {
@@ -201,7 +203,7 @@
                     <span class="project-desc">— AI system architect at Johns Hopkins Applied Physics Laboratory, building agent orchestration and evaluation infrastructure for national security workflows.</span>
                 </li>
                 <li>
-                    <span class="project-name">UNITE</span>
+                    <span class="project-name"><a href="https://imagine.jhu.edu/treks-and-tours/" target="_blank" rel="noopener noreferrer">UNITE</a></span>
                     <span class="project-desc">— Founded a $35K-funded program formalizing the JHU-APL talent pipeline through an Intersession course with lab tours, executive speakers, and recruitment pathways.</span>
                 </li>
             </ul>
@@ -222,57 +224,57 @@
             <ul>
                 <li>
                     <span class="topic-name">The substitution problem</span>
-                    <span class="topic-desc">— Students use AI to skip thinking. The tool that was supposed to help is making them worse. How do you build something that resists this?</span>
+                    <span class="topic-desc">— Students use AI to skip thinking. The tool that promised to democratize learning is making them worse. How do you build something that resists this?</span>
                 </li>
                 <li>
                     <span class="topic-name">Knowledge as a graph</span>
-                    <span class="topic-desc">— Understanding isn't a score. It's a structure — prerequisites, dependencies, gaps. Can you map it and use it?</span>
+                    <span class="topic-desc">— Understanding isn't a score. It's a structure: prerequisites, dependencies, gaps. How can you map and use it?</span>
                 </li>
             </ul>
 
             <h2>Systems</h2>
             <ul>
                 <li>
-                    <span class="topic-name">Agent orchestration</span>
-                    <span class="topic-desc">— Multi-step AI that does real work. The hard part isn't the model — it's knowing when it's wrong.</span>
+                    <span class="topic-name">Agent <br> orchestration</span>
+                    <span class="topic-desc">— AIs, like humans, work better in teams. And like human organizations, their structures can vary widely. What are the best ways to coordinate them?</span>
                 </li>
                 <li>
-                    <span class="topic-name">Building in public</span>
-                    <span class="topic-desc">— What it's like to start something from scratch, make it real, and figure out if anyone cares.</span>
+                    <span class="topic-name">Cybernetic governance</span>
+                    <span class="topic-desc">— Control theory, AI, and systems science can help us govern complex societies and organizations through feedback loops. How can we do this in a way that puts humans first?</span>
                 </li>
             </ul>
 
-            <h2>Things That Shaped This</h2>
+            <h2>Writing</h2>
+            <ul>
+                <li>
+                    <span class="project-name">AI and human cognition</span>
+                    <span class="project-desc">— How AI interfaces with human cognition — the research and philosophy behind Altera. <a href="https://altera-labs.com/public/documents/ai-and-the-brain-neurocognitive-perspective.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</span>
+                </li>
+                <li>
+                    <span class="project-name">IEEE ISEC 2023</span>
+                    <span class="project-desc">— Simulating quantum magnetism on noisy quantum computers: an analysis of Trotter-Suzuki and qDRIFT. <a href="1570884393%20abstract.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</span>
+                </li>
+            </ul>
 
-            <div class="item">
-                <div class="item-note">I wrote a <a href="https://altera-labs.com/public/documents/ai-and-the-brain-neurocognitive-perspective.pdf" target="_blank" rel="noopener noreferrer">paper</a> on how AI interfaces with human cognition — it became the research behind Altera.</div>
-            </div>
-
-            <div class="item">
-                <div class="item-title">Surely You're Joking, Mr. Feynman!</div>
-                <div class="item-note">Half brilliant thoughts on physics and curiosity, half questionable thoughts about women. The first half stuck with me.</div>
-            </div>
-
-            <details>
-                <summary><h2 style="display:inline; cursor:pointer;">Important Conversations</h2></summary>
-                <div style="margin-top:1rem;">
-                    <div class="track">
-                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/2nzzDrb8gs87uHKqqvUPYM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                    <div class="track">
-                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/40sptZNuCXjhzPYTG6K2rh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                    <div class="track">
-                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/5kPPQRmcZ2ZofkKW1GPOPb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                    <div class="track">
-                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/4z2bvCcDUlhVSJRV8vlkPh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                    <div class="track">
-                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/0aM69uGff54ewQJzQxZVLf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
+            <h2>Important Conversations</h2>
+            <div id="podcasts-container">
+                <div class="track" data-idx="0">
+                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/2nzzDrb8gs87uHKqqvUPYM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
-            </details>
+                <div class="track" data-idx="1">
+                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/40sptZNuCXjhzPYTG6K2rh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="track" data-idx="2" style="display:none;">
+                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/5kPPQRmcZ2ZofkKW1GPOPb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="track" data-idx="3" style="display:none;">
+                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/4z2bvCcDUlhVSJRV8vlkPh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="track" data-idx="4" style="display:none;">
+                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/0aM69uGff54ewQJzQxZVLf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <a class="toggle-link" id="podcasts-toggle" href="javascript:void(0)">3 more</a>
+            </div>
 
             <h2>Recently Listening</h2>
             <div id="spotify-tracks">
@@ -281,28 +283,11 @@
         </div>
 
         <div class="footer">
-            Peter Seelman, 2026.
-        </div>
-
-        <!-- TEMP: color picker — remove before final push -->
-        <div id="color-picker" style="position:fixed;bottom:1rem;right:1rem;background:#2c2925;padding:0.75rem;border-radius:8px;font-family:monospace;font-size:0.75rem;z-index:999;display:flex;flex-direction:column;gap:0.25rem;">
-            <div style="color:#f4eedd;margin-bottom:0.25rem;">Pick background:</div>
-            <button onclick="setBg('#f4eedd')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f4eedd;color:#2c2925;">1. #f4eedd original</button>
-            <button onclick="setBg('#f0e6d0')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f0e6d0;color:#2c2925;">2. #f0e6d0 warmer</button>
-            <button onclick="setBg('#ede1cc')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#ede1cc;color:#2c2925;">3. #ede1cc cream</button>
-            <button onclick="setBg('#f2e4c8')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f2e4c8;color:#2c2925;">4. #f2e4c8 golden</button>
-            <button onclick="setBg('#eedcc0')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#eedcc0;color:#2c2925;">5. #eedcc0 parchment</button>
-            <button onclick="setBg('#f0dfc6')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f0dfc6;color:#2c2925;">6. #f0dfc6 middle</button>
-            <button onclick="setBg('#eadbc4')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#eadbc4;color:#2c2925;">7. #eadbc4 rich</button>
+            Peter Charles Seelman, 2026.
         </div>
     </div>
 
     <script>
-        function setBg(color) {
-            document.documentElement.style.backgroundColor = color;
-            document.body.style.backgroundColor = color;
-        }
-
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
@@ -312,6 +297,28 @@
             });
         });
 
+        // Toggle for podcasts (default 2)
+        function setupToggle(containerId, toggleId, defaultCount) {
+            const container = document.getElementById(containerId);
+            const toggle = document.getElementById(toggleId);
+            if (!container || !toggle) return;
+            const items = container.querySelectorAll('.track');
+            const total = items.length;
+            const hiddenCount = total - defaultCount;
+            if (hiddenCount <= 0) { toggle.style.display = 'none'; return; }
+            let expanded = false;
+            toggle.textContent = hiddenCount + ' more';
+            toggle.addEventListener('click', () => {
+                expanded = !expanded;
+                items.forEach((item, i) => {
+                    item.style.display = (expanded || i < defaultCount) ? '' : 'none';
+                });
+                toggle.textContent = expanded ? 'show less' : hiddenCount + ' more';
+            });
+        }
+        setupToggle('podcasts-container', 'podcasts-toggle', 2);
+
+        // Spotify recently listened (default 3)
         fetch('https://ntazcbtojtoipnltifew.supabase.co/functions/v1/spotify-recent')
             .then(res => res.json())
             .then(tracks => {
@@ -320,11 +327,20 @@
                     el.innerHTML = '<p class="topic-desc">Nothing recent.</p>';
                     return;
                 }
-                el.innerHTML = tracks.map(t =>
-                    `<div class="track">
+                const defaultVisible = 3;
+                let html = tracks.map((t, i) =>
+                    `<div class="track" data-idx="${i}" ${i >= defaultVisible ? 'style="display:none;"' : ''}>
                         <iframe src="https://open.spotify.com/embed/track/${t.id}?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>`
                 ).join('');
+                const hiddenCount = Math.max(0, tracks.length - defaultVisible);
+                if (hiddenCount > 0) {
+                    html += `<a class="toggle-link" id="songs-toggle" href="javascript:void(0)">${hiddenCount} more</a>`;
+                }
+                el.innerHTML = html;
+                if (hiddenCount > 0) {
+                    setupToggle('spotify-tracks', 'songs-toggle', defaultVisible);
+                }
             })
             .catch(() => {
                 document.getElementById('spotify-tracks').innerHTML =
