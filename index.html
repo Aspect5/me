@@ -14,11 +14,15 @@
     <style>
         /* Paper Theme (Forced - No automatic dark mode) */
         :root {
-            --bg-color: #f4eedd;
+            --bg-color: #e8dcc8;
             --text-color: #2c2925;
             --text-muted: #736c61;
             --link-color: #d93c18;
             --link-hover: #a12a0f;
+        }
+
+        html {
+            background-color: var(--bg-color);
         }
 
         body {
@@ -28,6 +32,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 2rem;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             -webkit-font-smoothing: antialiased;
@@ -37,7 +42,7 @@
         .container {
             max-width: 650px;
             width: 100%;
-            margin-top: 4rem;
+            margin-top: 1.5rem;
         }
 
         nav {
@@ -248,23 +253,26 @@
                 <div class="item-note">Half brilliant thoughts on physics and curiosity, half questionable thoughts about women. The first half stuck with me.</div>
             </div>
 
-            <h2>Podcasts</h2>
-
-            <div class="track">
-                <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/2nzzDrb8gs87uHKqqvUPYM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-            <div class="track">
-                <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/40sptZNuCXjhzPYTG6K2rh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-            <div class="track">
-                <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/5kPPQRmcZ2ZofkKW1GPOPb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-            <div class="track">
-                <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/4z2bvCcDUlhVSJRV8vlkPh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-            <div class="track">
-                <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/0aM69uGff54ewQJzQxZVLf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
+            <details>
+                <summary><h2 style="display:inline; cursor:pointer;">Important Conversations</h2></summary>
+                <div style="margin-top:1rem;">
+                    <div class="track">
+                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/2nzzDrb8gs87uHKqqvUPYM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    <div class="track">
+                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/40sptZNuCXjhzPYTG6K2rh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    <div class="track">
+                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/5kPPQRmcZ2ZofkKW1GPOPb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    <div class="track">
+                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/4z2bvCcDUlhVSJRV8vlkPh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    <div class="track">
+                        <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/0aM69uGff54ewQJzQxZVLf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </details>
 
             <h2>Recently Listening</h2>
             <div id="spotify-tracks">
