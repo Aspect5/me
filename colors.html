@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a cream</title>
+    <style>
+        body {
+            font-family: "Courier New", monospace;
+            margin: 0;
+            padding: 1rem;
+        }
+        .swatch {
+            padding: 2rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .swatch:hover {
+            border-color: #2c2925;
+        }
+        .swatch .label {
+            font-size: 0.85rem;
+            color: #736c61;
+            margin-bottom: 0.5rem;
+        }
+        .swatch .sample {
+            color: #2c2925;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .swatch .sample a {
+            color: #d93c18;
+            text-decoration: none;
+            border-bottom: 1px solid #d93c18;
+        }
+        .selected-label {
+            font-size: 0.9rem;
+            padding: 1rem;
+            color: #2c2925;
+        }
+    </style>
+</head>
+<body>
+    <div class="selected-label">Click one to preview full-page:</div>
+
+    <div class="swatch" style="background:#f4eedd;" onclick="pick('#f4eedd')">
+        <div class="label">1. #f4eedd — original</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <div class="swatch" style="background:#f0e6d0;" onclick="pick('#f0e6d0')">
+        <div class="label">2. #f0e6d0 — slightly warmer</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <div class="swatch" style="background:#ede1cc;" onclick="pick('#ede1cc')">
+        <div class="label">3. #ede1cc — noticeable cream</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <div class="swatch" style="background:#f2e4c8;" onclick="pick('#f2e4c8')">
+        <div class="label">4. #f2e4c8 — golden honey</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <div class="swatch" style="background:#eedcc0;" onclick="pick('#eedcc0')">
+        <div class="label">5. #eedcc0 — warm parchment</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <div class="swatch" style="background:#f0dfc6;" onclick="pick('#f0dfc6')">
+        <div class="label">6. #f0dfc6 — split the difference</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <div class="swatch" style="background:#eadbc4;" onclick="pick('#eadbc4')">
+        <div class="label">7. #eadbc4 — rich</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <div class="swatch" style="background:#e8dcc8;" onclick="pick('#e8dcc8')">
+        <div class="label">8. #e8dcc8 — current (too dark)</div>
+        <div class="sample"><strong>Peter Seelman</strong> — I am a human studying Physics and Mathematics. Currently building <a href="#">Altera Labs</a>.</div>
+    </div>
+
+    <script>
+        function pick(color) {
+            document.body.style.backgroundColor = color;
+            document.querySelector('.selected-label').textContent = 'Full page preview: ' + color + ' — click another to compare';
+        }
+    </script>
+</body>
+</html>

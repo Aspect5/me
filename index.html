@@ -283,9 +283,26 @@
         <div class="footer">
             Peter Seelman, 2026.
         </div>
+
+        <!-- TEMP: color picker — remove before final push -->
+        <div id="color-picker" style="position:fixed;bottom:1rem;right:1rem;background:#2c2925;padding:0.75rem;border-radius:8px;font-family:monospace;font-size:0.75rem;z-index:999;display:flex;flex-direction:column;gap:0.25rem;">
+            <div style="color:#f4eedd;margin-bottom:0.25rem;">Pick background:</div>
+            <button onclick="setBg('#f4eedd')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f4eedd;color:#2c2925;">1. #f4eedd original</button>
+            <button onclick="setBg('#f0e6d0')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f0e6d0;color:#2c2925;">2. #f0e6d0 warmer</button>
+            <button onclick="setBg('#ede1cc')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#ede1cc;color:#2c2925;">3. #ede1cc cream</button>
+            <button onclick="setBg('#f2e4c8')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f2e4c8;color:#2c2925;">4. #f2e4c8 golden</button>
+            <button onclick="setBg('#eedcc0')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#eedcc0;color:#2c2925;">5. #eedcc0 parchment</button>
+            <button onclick="setBg('#f0dfc6')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#f0dfc6;color:#2c2925;">6. #f0dfc6 middle</button>
+            <button onclick="setBg('#eadbc4')" style="all:unset;cursor:pointer;padding:0.3rem 0.5rem;border-radius:4px;background:#eadbc4;color:#2c2925;">7. #eadbc4 rich</button>
+        </div>
     </div>
 
     <script>
+        function setBg(color) {
+            document.documentElement.style.backgroundColor = color;
+            document.body.style.backgroundColor = color;
+        }
+
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
