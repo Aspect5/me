@@ -117,6 +117,41 @@
             min-width: 160px;
         }
 
+        .publication-title {
+            font-style: italic;
+            font-weight: normal;
+            font-size: 1.08rem;
+            color: var(--text-color);
+        }
+
+        .publication-item {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-item .project-name {
+            display: block;
+            min-width: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-details {
+            color: var(--text-muted);
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        .publication-details li {
+            display: list-item;
+            margin-bottom: 0.35rem;
+        }
+
+        .publication-label {
+            font-variant: small-caps;
+            letter-spacing: 0.04em;
+            color: var(--text-color);
+        }
+
         .project-desc, .topic-desc {
             color: var(--text-muted);
         }
@@ -185,6 +220,7 @@
         <nav>
             <a data-tab="home" class="active">Home</a>
             <a data-tab="thinking">Thinking</a>
+            <a data-tab="publications">Publications</a>
         </nav>
 
         <!-- HOME -->
@@ -248,18 +284,6 @@
                 </li>
             </ul>
 
-            <h2>Writing</h2>
-            <ul>
-                <li>
-                    <span class="project-name">AI and human cognition</span>
-                    <span class="project-desc">— How AI interfaces with human cognition — the research and philosophy behind Altera. <a href="https://altera-labs.com/public/documents/ai-and-the-brain-neurocognitive-perspective.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</span>
-                </li>
-                <li>
-                    <span class="project-name">IEEE ISEC 2023</span>
-                    <span class="project-desc">— Simulating quantum magnetism on noisy quantum computers: an analysis of Trotter-Suzuki and qDRIFT. <a href="1570884393%20abstract.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</span>
-                </li>
-            </ul>
-
             <h2>Important Conversations</h2>
             <div id="podcasts-container">
                 <div class="track" data-idx="0">
@@ -280,10 +304,38 @@
                 <a class="toggle-link" id="podcasts-toggle" href="javascript:void(0)">3 more</a>
             </div>
 
-            <h2>Recently Listening</h2>
+            <h2>Recently Listened</h2>
             <div id="spotify-tracks">
                 <p class="topic-desc">Loading...</p>
             </div>
+        </div>
+
+        <!-- PUBLICATIONS -->
+        <div id="publications" class="tab">
+            <h2>Publications</h2>
+            <ul>
+                <li class="publication-item">
+                    <span class="project-name publication-title">Artificial Intelligence and Education: A Neurocognitive Perspective</span>
+                    <ul class="publication-details">
+                        <li>— The research and philosophy behind Altera. AI as a cognitive tool and what its rise means for memory, understanding, and the future of education.</li>
+                        <li>— Altera Labs, May 2025. <a href="https://altera-labs.com/public/documents/ai-and-the-brain-neurocognitive-perspective.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
+                    </ul>
+                </li>
+                <li class="publication-item">
+                    <span class="project-name publication-title">Cubesats to Classrooms</span>
+                    <ul class="publication-details">
+                        <li>— Presentation on NASA's EZIE mission and its citizen-science magnetometer program, from kit deployment to manuals, tutorials, and AI tools for public outreach.</li>
+                        <li>— American Institute of Aeronautics and Astronautics (AIAA) Young Professionals, Students, and Educators Conference, November 2024. <a href="AIAA_Presentation.pdf" target="_blank" rel="noopener noreferrer">View the slides</a>.</li>
+                    </ul>
+                </li>
+                <li class="publication-item">
+                    <span class="project-name publication-title">Simulating quantum magnetism on noisy quantum computers</span>
+                    <ul class="publication-details">
+                        <li>— A comparison of Trotter-Suzuki and qDRIFT for simulating Ising-model quantum ferromagnetic dynamics on real quantum hardware.</li>
+                        <li>— IEEE Integrated STEM Education Conference, March 2023. <br> <a href="ISEC%20Poster%20FINAL%205.pdf" target="_blank" rel="noopener noreferrer">View the poster</a> / <a href="1570884393%20abstract.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
 
         <div class="footer">
