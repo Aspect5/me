@@ -17,6 +17,24 @@
     <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="favicon.ico" sizes="48x48">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Peter Seelman",
+      "url": "https://peterseelman.com",
+      "image": "https://peterseelman.com/profile.png",
+      "jobTitle": "Founder, Altera Labs",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Johns Hopkins University"
+      },
+      "sameAs": [
+        "https://github.com/Aspect5",
+        "https://linkedin.com/in/peter-seelman"
+      ]
+    }
+    </script>
     <style>
         /* Paper Theme (Forced - No automatic dark mode) */
         :root {
@@ -77,6 +95,14 @@
             font-size: 1.25rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
+        }
+
+        .profile-logo {
+            width: 72px;
+            height: 72px;
+            display: block;
+            margin-bottom: 1rem;
+            border-radius: 8px;
         }
 
         p {
@@ -215,6 +241,7 @@
 </head>
 <body>
     <div class="container">
+        <img src="profile.png" alt="Peter Seelman" class="profile-logo" width="72" height="72">
         <h1>Peter Seelman</h1>
 
         <nav>
