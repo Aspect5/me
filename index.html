@@ -1,441 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peter Seelman</title>
-    <meta name="description" content="Peter Seelman — builder, physics & math student at Johns Hopkins, founder of Altera Labs.">
-    <meta name="author" content="Peter Seelman">
-    <meta property="og:title" content="Peter Seelman">
-    <meta property="og:description" content="Builder, physics & math student at Johns Hopkins, founder of Altera Labs.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://peterseelman.com">
-    <meta property="og:image" content="https://peterseelman.com/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="favicon.ico" sizes="48x48">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Peter Seelman",
-      "url": "https://peterseelman.com",
-      "image": "https://peterseelman.com/profile.png",
-      "jobTitle": "Founder, Altera Labs",
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Johns Hopkins University"
-      },
-      "sameAs": [
-        "https://github.com/Aspect5",
-        "https://linkedin.com/in/peter-seelman"
-      ]
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f0e6d0">
+<title>Peter Seelman</title>
+<meta name="description" content="Peter Seelman — builder, physics & math student at Johns Hopkins, founder of Altera Labs.">
+<meta name="author" content="Peter Seelman">
+<meta property="og:title" content="Peter Seelman">
+<meta property="og:description" content="Builder, physics & math student at Johns Hopkins, founder of Altera Labs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://peterseelman.com">
+<meta property="og:image" content="https://peterseelman.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Peter Seelman",
+  "url": "https://peterseelman.com",
+  "image": "https://peterseelman.com/profile.png",
+  "jobTitle": "Founder, Altera Labs",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Johns Hopkins University"
+  },
+  "sameAs": [
+    "https://github.com/Aspect5",
+    "https://linkedin.com/in/peter-seelman"
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg-color: #f0e6d0;
+    --text-color: #2c2925;
+    --text-muted: #736c61;
+    --link-color: #d93c18;
+    --link-hover: #a12a0f;
+  }
+
+  html { background-color: var(--bg-color); }
+  body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+
+  .container {
+    max-width: 650px;
+    width: 100%;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+
+  /* The typewriter PS is the logo mark — sits ABOVE the name, replacing profile PS duplication. */
+  .ps-sig {
+    font-size: 2.4rem;
+    line-height: 1;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0;
+  }
+  .ps-sig .ch { display: inline-block; opacity: 0; }
+  .ps-sig .ch.c1 { animation: appear 0.1s var(--ps-c1, 0.30s) forwards; }
+  .ps-sig .ch.c3 { animation: appear 0.1s var(--ps-c3, 0.80s) forwards; }
+  .ps-sig .ch.c2,
+  .ps-sig .ch.c4 {
+    animation-name: appear, dotOut;
+    animation-duration: 0.1s, 0.9s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: linear, ease;
+  }
+  .ps-sig .ch.c2 { animation-delay: var(--ps-c2, 0.55s), var(--ps-dot-fade, 14s); }
+  .ps-sig .ch.c4 { animation-delay: var(--ps-c4, 1.05s), var(--ps-dot-fade, 14s); }
+
+  /* Dots render naturally with letter-spacing; no width hacks. */
+  .ps-sig .dot {
+    display: inline-block;
+    overflow: hidden;
+    transform-origin: center;
+  }
+  @keyframes dotOut {
+    0%   { opacity: 1; max-width: 0.5em; }
+    100% { opacity: 0; max-width: 0;     }
+  }
+
+  /* Moving typewriter cursor: only ONE cursor element, and its position
+     is driven by placing it AFTER the currently-visible last char.
+     We do this by staggering each char's appearance AND fading the previous
+     cursor position. Simpler: put a cursor after EACH char; only show the one
+     whose char is the "tip" of the typed sequence. */
+  .ps-sig .caret {
+    display: inline-block;
+    width: 0.08em;
+    background: currentColor;
+    height: 0.85em;
+    margin-left: 0.04em;
+    margin-right: -0.04em;
+    transform: translateY(0.05em);
+    opacity: 0;
+    animation: blink 1.1s step-end infinite;
+  }
+  /* Each caret is visible only while it's the "tip" — from when its preceding
+     char was typed until the next char is typed. The final caret stays on
+     until the dots fade. */
+  .ps-sig .caret.k1 { animation: caretHold 0.25s var(--ps-k1, 0.30s) forwards, blink 1.1s step-end var(--ps-k1, 0.30s) infinite; }
+  .ps-sig .caret.k2 { animation: caretHold 0.25s var(--ps-k2, 0.55s) forwards, blink 1.1s step-end var(--ps-k2, 0.55s) infinite; }
+  .ps-sig .caret.k3 { animation: caretHold 0.25s var(--ps-k3, 0.80s) forwards, blink 1.1s step-end var(--ps-k3, 0.80s) infinite; }
+  .ps-sig .caret.k4 {
+    animation: caretAppear 0.01s var(--ps-k4, 1.05s) forwards,
+               blink 1.1s step-end var(--ps-k4, 1.05s) 1,
+               caretKill 0.15s var(--ps-caret-kill, 1.3s) forwards;
+  }
+  @keyframes caretKill {
+    to { opacity: 0; width: 0; margin: 0; }
+  }
+  @keyframes caretHold {
+    0%   { opacity: 1; width: 0.08em; margin-right: -0.04em; }
+    99%  { opacity: 1; width: 0.08em; margin-right: -0.04em; }
+    100% { opacity: 0; width: 0;       margin-right: 0;       }
+  }
+  @keyframes caretAppear {
+    to { opacity: 1; }
+  }
+
+
+  /* Reusable keyframes for tiny CSS-driven effects (P.S. signature uses these). */
+  @keyframes appear { to { opacity: 1; } }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ══════════════ TYPEWRITER REVEAL (WAAPI-driven) ══════════════
+     Classes are applied by typewriter.js. CSS only defines visuals
+     (starting opacity, cursor bar) — all timing is in JS. */
+  .full-name { white-space: nowrap; }
+
+  /* Every typed unit (char or word) starts invisible. WAAPI fills opacity
+     to 1 at the unit's scheduled delay. */
+  .tw-char, .tw-word {
+    opacity: 0;
+    position: relative;
+  }
+
+  /* Real cursor span — WAAPI-animated, not a ::after pseudo. This keeps the
+     whole reveal in one animation system. */
+  .tw-cursor {
+    display: inline-block;
+    position: absolute;
+    right: -3px;
+    top: 0.05em;
+    bottom: 0.05em;
+    width: 2px;
+    background: currentColor;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Links inside body cascade: hide their border-bottom until the link's
+     "type-in" moment, then reveal. Driven by JS toggling .tw-link-on. */
+  .tw-link { border-bottom-color: transparent !important; }
+  .tw-link.tw-link-on { border-bottom-color: var(--link-color) !important; }
+
+  /* Block-level chrome (h2 dashed rule, ::before glyph) stays hidden until
+     the block's first word is about to type in. One class, handled by JS. */
+  .tw-block-hidden { visibility: hidden; }
+
+  /* Masthead layout */
+  .mast-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ══════════════ NAV ══════════════ */
+  nav {
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+  }
+  nav a {
+    color: var(--text-muted);
+    border-bottom: none;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+  }
+  nav a:hover { color: var(--text-color); }
+  nav a.active { color: var(--text-color); font-weight: bold; }
+
+  /* ══════════════ HEADINGS ══════════════ */
+  h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  h2::before {
+    content: "§";
+    color: var(--link-color);
+    font-weight: bold;
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: translateY(1px);
+  }
+  h2::after {
+    content: "";
+    flex: 1;
+    border-top: 1px dashed var(--text-muted);
+    opacity: 0.35;
+  }
+
+  p { font-size: 1rem; margin-bottom: 1.5rem; }
+
+  ul { list-style-type: none; padding: 0; margin: 0 0 2rem 0; }
+  li {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-name, .topic-name { font-weight: bold; }
+  .project-desc, .topic-desc { color: var(--text-muted); }
+  @media (min-width: 480px) {
+    li { flex-direction: row; align-items: baseline; }
+    .project-name, .topic-name { min-width: 160px; }
+  }
+
+  /* ══════════════ LINKS ══════════════ */
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--link-color);
+    transition: color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
+  }
+  a:hover { color: var(--link-hover); border-color: var(--link-hover); }
+  a:not(.toggle-link):hover { box-shadow: inset 0 -2px 0 currentColor; }
+
+  /* ══════════════ FOOTER ══════════════ */
+  .footer {
+    margin-top: 5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px dashed var(--text-muted);
+    padding-top: 1.5rem;
+    opacity: 0.7;
+  }
+  .footer a { color: var(--text-muted); border-color: transparent; }
+  .footer a:hover { color: var(--text-color); border-color: var(--text-color); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ps-sig .ch, .ps-sig .caret,
+    .tw-char, .tw-word, .tw-cursor,
+    .full-name, nav a {
+      animation: none !important; opacity: 1 !important;
     }
-    </script>
-    <style>
-        /* Paper Theme (Forced - No automatic dark mode) */
-        :root {
-            --bg-color: #f0e6d0;
-            --text-color: #2c2925;
-            --text-muted: #736c61;
-            --link-color: #d93c18;
-            --link-hover: #a12a0f;
-        }
+    .tw-link { border-bottom-color: var(--link-color) !important; }
+    .tw-block-hidden { visibility: visible !important; }
+  }
 
-        html {
-            background-color: var(--bg-color);
-        }
+  .tab { display: none; }
+  .tab.active { display: block; }
 
-        body {
-            font-family: "Courier New", Courier, monospace;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 2rem;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+  .toggle-link {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-bottom: none;
+    cursor: pointer;
+  }
+  .toggle-link:hover { color: var(--text-color); border-bottom: none; }
 
-        .container {
-            max-width: 650px;
-            width: 100%;
-            margin-top: 1.5rem;
-        }
+  .publication-title { font-style: italic; font-weight: normal; font-size: 1.08rem; color: var(--text-color); }
+  .publication-item { display: block; margin-bottom: 1.5rem; }
+  .publication-item .project-name { display: block; min-width: 0; margin-bottom: 0.5rem; }
+  .publication-details { color: var(--text-muted); margin: 0; padding-left: 1.25rem; }
+  .publication-details li { display: list-item; margin-bottom: 0.35rem; }
+  /* Skip-to-content link — visible only when focused, for keyboard users. */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    z-index: 100;
+    border-bottom: none;
+  }
+  .skip-link:focus { top: 0; }
 
-        nav {
-            margin-bottom: 3rem;
-            font-size: 0.9rem;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            border-bottom: none;
-            margin-right: 1.5rem;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: var(--text-color);
-            border-bottom: none;
-        }
-
-        nav a.active {
-            color: var(--text-color);
-            font-weight: bold;
-        }
-
-        h1 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
-
-        .profile-logo {
-            width: 72px;
-            height: 72px;
-            display: block;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h2 {
-            font-size: 1rem;
-            font-weight: bold;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0 0 2rem 0;
-        }
-
-        li {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (min-width: 480px) {
-            li {
-                flex-direction: row;
-                align-items: baseline;
-            }
-        }
-
-        .project-name, .topic-name {
-            font-weight: bold;
-            min-width: 160px;
-        }
-
-        .publication-title {
-            font-style: italic;
-            font-weight: normal;
-            font-size: 1.08rem;
-            color: var(--text-color);
-        }
-
-        .publication-item {
-            display: block;
-            margin-bottom: 1.5rem;
-        }
-
-        .publication-item .project-name {
-            display: block;
-            min-width: 0;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-details {
-            color: var(--text-muted);
-            margin: 0;
-            padding-left: 1.25rem;
-        }
-
-        .publication-details li {
-            display: list-item;
-            margin-bottom: 0.35rem;
-        }
-
-        .publication-label {
-            font-variant: small-caps;
-            letter-spacing: 0.04em;
-            color: var(--text-color);
-        }
-
-        .project-desc, .topic-desc {
-            color: var(--text-muted);
-        }
-
-        .track {
-            margin-bottom: 0.5rem;
-        }
-
-        .track iframe {
-            border-radius: 8px;
-        }
-
-        .toggle-link {
-            display: inline-block;
-            margin-top: 0.25rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border-bottom: none;
-            cursor: pointer;
-        }
-
-        .toggle-link:hover {
-            color: var(--text-color);
-            border-bottom: none;
-        }
-
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            border-bottom: 1px solid var(--link-color);
-            transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        a:hover {
-            color: var(--link-hover);
-            border-color: var(--link-hover);
-        }
-
-        .tab { display: none; }
-        .tab.active { display: block; }
-
-        .footer {
-            margin-top: 5rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border-top: 1px dashed var(--text-muted);
-            padding-top: 1.5rem;
-            opacity: 0.7;
-        }
-
-        .footer a {
-            color: var(--text-muted);
-            border-color: transparent;
-        }
-
-        .footer a:hover {
-            color: var(--text-color);
-            border-color: var(--text-color);
-        }
-    </style>
+  /* Topic name with optional forced line break on desktop. */
+  .topic-name .br-desktop::before { content: " "; }
+  @media (min-width: 480px) {
+    .topic-name .br-desktop::before { content: ""; }
+    .topic-name .br-desktop { display: block; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <img src="profile.png" alt="Peter Seelman" class="profile-logo" width="72" height="72">
-        <h1>Peter Seelman</h1>
-
-        <nav>
-            <a data-tab="home" class="active">Home</a>
-            <a data-tab="thinking">Thinking</a>
-            <a data-tab="publications">Publications</a>
-        </nav>
-
-        <!-- HOME -->
-        <div id="home" class="tab active">
-            <p>
-                I am a human studying Physics and Mathematics at Johns Hopkins University. I am currently building <a href="https://altera-labs.com" target="_blank" rel="noopener noreferrer">Altera Labs</a>.
-            </p>
-            <p>
-                My focus is on AI agent architectures and knowledge systems for education and national security. Below is a selection of my recent work.
-            </p>
-
-            <h2>Selected Work</h2>
-            <ul>
-                <li>
-                    <span class="project-name"><a href="https://altera-labs.com" target="_blank" rel="noopener noreferrer">Altera Labs</a></span>
-                    <span class="project-desc">— A state-aware AI tutoring platform for STEM, using knowledge graphs and Bayesian tracing to teach rather than give answers.</span>
-                </li>
-                <li>
-                    <span class="project-name"><a href="https://www.jhuapl.edu" target="_blank" rel="noopener noreferrer">APL</a></span>
-                    <span class="project-desc">— AI system architect at Johns Hopkins Applied Physics Laboratory, building agent orchestration and evaluation infrastructure for national security workflows.</span>
-                </li>
-                <li>
-                    <span class="project-name"><a href="https://imagine.jhu.edu/treks-and-tours/" target="_blank" rel="noopener noreferrer">UNITE</a></span>
-                    <span class="project-desc">— Founded a $35K-funded program formalizing the JHU-APL talent pipeline through an Intersession course with lab tours, executive speakers, and recruitment pathways.</span>
-                </li>
-            </ul>
-
-            <h2>Contact</h2>
-            <p>
-                Reach out via <a href="mailto:peterseelman5@gmail.com">email</a> or find me on <a href="https://github.com/Aspect5" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://linkedin.com/in/peter-seelman" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
-            </p>
-        </div>
-
-        <!-- THINKING -->
-        <div id="thinking" class="tab">
-            <p>
-                Things I keep coming back to. Not finished thoughts — just directions.
-            </p>
-
-            <h2>Learning & AI</h2>
-            <ul>
-                <li>
-                    <span class="topic-name">The substitution problem</span>
-                    <span class="topic-desc">— Students use AI to skip thinking. The tool that promised to democratize learning is making them worse. How do you build something that resists this?</span>
-                </li>
-                <li>
-                    <span class="topic-name">Knowledge as a graph</span>
-                    <span class="topic-desc">— Understanding isn't a score. It's a structure: prerequisites, dependencies, gaps. How can you map and use it?</span>
-                </li>
-            </ul>
-
-            <h2>Systems</h2>
-            <ul>
-                <li>
-                    <span class="topic-name">Agent <br> orchestration</span>
-                    <span class="topic-desc">— AIs, like humans, work better in teams. And like human organizations, their structures can vary widely. What are the best ways to coordinate them?</span>
-                </li>
-                <li>
-                    <span class="topic-name">Cybernetic governance</span>
-                    <span class="topic-desc">— Control theory, AI, and systems science can help us govern complex societies and organizations through feedback loops. How can we do this in a way that puts humans first?</span>
-                </li>
-            </ul>
-
-            <h2>Important Conversations</h2>
-            <div id="podcasts-container">
-                <div class="track" data-idx="0">
-                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/2nzzDrb8gs87uHKqqvUPYM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="track" data-idx="1">
-                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/40sptZNuCXjhzPYTG6K2rh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="track" data-idx="2" style="display:none;">
-                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/5kPPQRmcZ2ZofkKW1GPOPb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="track" data-idx="3" style="display:none;">
-                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/4z2bvCcDUlhVSJRV8vlkPh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="track" data-idx="4" style="display:none;">
-                    <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/0aM69uGff54ewQJzQxZVLf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <a class="toggle-link" id="podcasts-toggle" href="javascript:void(0)">3 more</a>
-            </div>
-
-            <h2>Recently Listened</h2>
-            <div id="spotify-tracks">
-                <p class="topic-desc">Loading...</p>
-            </div>
-        </div>
-
-        <!-- PUBLICATIONS -->
-        <div id="publications" class="tab">
-            <h2>Publications</h2>
-            <ul>
-                <li class="publication-item">
-                    <span class="project-name publication-title">Artificial Intelligence and Education: A Neurocognitive Perspective</span>
-                    <ul class="publication-details">
-                        <li>— The research and philosophy behind Altera. AI as a cognitive tool and what its rise means for memory, understanding, and the future of education.</li>
-                        <li>— Altera Labs, May 2025. <a href="https://altera-labs.com/public/documents/ai-and-the-brain-neurocognitive-perspective.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
-                    </ul>
-                </li>
-                <li class="publication-item">
-                    <span class="project-name publication-title">Cubesats to Classrooms</span>
-                    <ul class="publication-details">
-                        <li>— Presentation on NASA's EZIE mission and its citizen-science magnetometer program, from kit deployment to manuals, tutorials, and AI tools for public outreach.</li>
-                        <li>— American Institute of Aeronautics and Astronautics (AIAA) Young Professionals, Students, and Educators Conference, November 2024. <a href="AIAA_Presentation.pdf" target="_blank" rel="noopener noreferrer">View the slides</a>.</li>
-                    </ul>
-                </li>
-                <li class="publication-item">
-                    <span class="project-name publication-title">EZIE-Mag: Empowering Students Nationwide in Space Science Exploration and Education</span>
-                    <ul class="publication-details">
-                        <li>— A national STEM engagement program deploying 700 low-cost magnetometer kits to schools across the U.S., inviting students to collect space-weather data alongside NASA's EZIE mission as citizen scientists.</li>
-                        <li>— Small Satellite Conference, August 2024. <a href="https://doi.org/10.26077/07cx-sd79" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
-                    </ul>
-                </li>
-                <li class="publication-item">
-                    <span class="project-name publication-title">Simulating quantum magnetism on noisy quantum computers</span>
-                    <ul class="publication-details">
-                        <li>— A comparison of Trotter-Suzuki and qDRIFT for simulating Ising-model quantum ferromagnetic dynamics on real quantum hardware.</li>
-                        <li>— IEEE Integrated STEM Education Conference, March 2023. <br> <a href="ISEC%20Poster%20FINAL%205.pdf" target="_blank" rel="noopener noreferrer">View the poster</a> / <a href="1570884393%20abstract.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer">
-            © Peter Charles Seelman, 2026.
-        </div>
+  <a class="skip-link" href="#home">Skip to content</a>
+  <div class="container">
+    <div class="mast-stack">
+      <span class="ps-sig" aria-hidden="true">
+        <span class="ch c1">P</span><span class="caret k1"></span><span class="ch dot c2">.</span><span class="caret k2"></span><span class="ch c3">S</span><span class="caret k3"></span><span class="ch dot c4">.</span><span class="caret k4"></span>
+      </span>
+      <h1><span class="full-name">Peter Seelman</span></h1>
     </div>
 
-    <script>
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                link.classList.add('active');
-                document.getElementById(link.dataset.tab).classList.add('active');
-            });
+    <nav>
+      <a data-tab="home" class="active">Home</a>
+      <a data-tab="thinking">Thinking</a>
+      <a data-tab="publications">Publications</a>
+    </nav>
+
+    <!-- HOME -->
+    <div id="home" class="tab active">
+      <p>
+        I'm a human studying Physics and Mathematics at Johns Hopkins, currently building <a href="https://altera-labs.com" target="_blank" rel="noopener noreferrer">Altera Labs</a>.
+      </p>
+      <p>
+        My focus is on AI agent architectures and knowledge systems for education and national security.
+      </p>
+
+      <h2>Selected Work</h2>
+      <ul>
+        <li>
+          <span class="project-name"><a href="https://altera-labs.com" target="_blank" rel="noopener noreferrer">Altera Labs</a></span>
+          <span class="project-desc">— A state-aware AI tutoring platform for STEM, using knowledge graphs and Bayesian tracing to teach rather than give answers.</span>
+        </li>
+        <li>
+          <span class="project-name"><a href="https://www.jhuapl.edu" target="_blank" rel="noopener noreferrer">APL</a></span>
+          <span class="project-desc">— AI system architect at Johns Hopkins Applied Physics Laboratory, building agent orchestration and evaluation infrastructure for national security workflows.</span>
+        </li>
+        <li>
+          <span class="project-name"><a href="https://imagine.jhu.edu/treks-and-tours/" target="_blank" rel="noopener noreferrer">UNITE</a></span>
+          <span class="project-desc">— A $35K-funded Intersession course that builds the JHU-APL recruitment pipeline through lab tours, speakers, and direct placement into APL roles.</span>
+        </li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>
+        Email me at <a id="email-link" href="#" data-u="peterseelman5" data-d="gmail.com"><span class="email-u"></span><span class="email-at" aria-hidden="true"> [at] </span><span class="email-d"></span></a>, or find me on <a href="https://github.com/Aspect5" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://linkedin.com/in/peter-seelman" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+      </p>
+    </div>
+
+    <!-- THINKING -->
+    <div id="thinking" class="tab">
+      <p>Things I keep coming back to. Not finished thoughts, just directions.</p>
+
+      <h2>Learning &amp; AI</h2>
+      <ul>
+        <li>
+          <span class="topic-name">The substitution problem</span>
+          <span class="topic-desc">— Students use AI to skip thinking. The tool that promised to democratize learning is making them worse. How do you build something that resists this?</span>
+        </li>
+        <li>
+          <span class="topic-name">Knowledge as a graph</span>
+          <span class="topic-desc">— Understanding isn't a score. It's a structure: prerequisites, dependencies, gaps. How can you map and use it?</span>
+        </li>
+      </ul>
+
+      <h2>Systems</h2>
+      <ul>
+        <li>
+          <span class="topic-name">Agent<span class="br-desktop"></span>orchestration</span>
+          <span class="topic-desc">— AIs, like humans, work better in teams. And like human organizations, their structures can vary widely. What are the best ways to coordinate them?</span>
+        </li>
+        <li>
+          <span class="topic-name">Cybernetic governance</span>
+          <span class="topic-desc">— Control theory, AI, and systems science can help us govern complex societies and organizations through feedback loops. How can we do this in a way that puts humans first?</span>
+        </li>
+      </ul>
+
+      <h2>Conversations I loved</h2>
+      <div id="podcasts-container">
+        <div class="track" data-idx="0">
+          <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/2nzzDrb8gs87uHKqqvUPYM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="track" data-idx="1">
+          <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/40sptZNuCXjhzPYTG6K2rh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="track" data-idx="2" style="display:none;">
+          <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/5kPPQRmcZ2ZofkKW1GPOPb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="track" data-idx="3" style="display:none;">
+          <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/4z2bvCcDUlhVSJRV8vlkPh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="track" data-idx="4" style="display:none;">
+          <iframe style="border-radius:8px" src="https://open.spotify.com/embed/episode/0aM69uGff54ewQJzQxZVLf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <a class="toggle-link" id="podcasts-toggle" href="javascript:void(0)">Show 3 more</a>
+      </div>
+
+      <h2>Playing now</h2>
+      <div id="spotify-tracks">
+        <p class="topic-desc">Loading…</p>
+      </div>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <div id="publications" class="tab">
+      <h2>Publications</h2>
+      <ul>
+        <li class="publication-item">
+          <span class="project-name publication-title">Artificial Intelligence and Education: A Neurocognitive Perspective</span>
+          <ul class="publication-details">
+            <li>— The research and philosophy behind Altera. AI as a cognitive tool and what its rise means for memory, understanding, and the future of education.</li>
+            <li>— Altera Labs, May 2025. <a href="https://altera-labs.com/public/documents/ai-and-the-brain-neurocognitive-perspective.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
+          </ul>
+        </li>
+        <li class="publication-item">
+          <span class="project-name publication-title">Cubesats to Classrooms</span>
+          <ul class="publication-details">
+            <li>— Presentation on NASA's EZIE mission and its citizen-science magnetometer program, from kit deployment to manuals, tutorials, and AI tools for public outreach.</li>
+            <li>— American Institute of Aeronautics and Astronautics (AIAA) Young Professionals, Students, and Educators Conference, November 2024. <a href="AIAA_Presentation.pdf" target="_blank" rel="noopener noreferrer">View the slides</a>.</li>
+          </ul>
+        </li>
+        <li class="publication-item">
+          <span class="project-name publication-title">EZIE-Mag: Empowering Students Nationwide in Space Science Exploration and Education</span>
+          <ul class="publication-details">
+            <li>— A national STEM engagement program deploying 700 low-cost magnetometer kits to schools across the U.S., inviting students to collect space-weather data alongside NASA's EZIE mission as citizen scientists.</li>
+            <li>— Small Satellite Conference, August 2024. <a href="https://doi.org/10.26077/07cx-sd79" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
+          </ul>
+        </li>
+        <li class="publication-item">
+          <span class="project-name publication-title">Simulating quantum magnetism on noisy quantum computers</span>
+          <ul class="publication-details">
+            <li>— A comparison of Trotter-Suzuki and qDRIFT for simulating Ising-model quantum ferromagnetic dynamics on real quantum hardware.</li>
+            <li>— IEEE Integrated STEM Education Conference, March 2023. <br> <a href="ISEC%20Poster%20FINAL%205.pdf" target="_blank" rel="noopener noreferrer">View the poster</a> / <a href="1570884393%20abstract.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer">© Peter Charles Seelman, 2026.</div>
+  </div>
+
+  <script src="typewriter.js?v=6"></script>
+  <script>
+    // ─────────────────────────────────────────────────────────────────
+    // Wire-up: tweak toggles + typewriter reveal + tab switching.
+    // All animation timing lives in typewriter.js.
+    // ─────────────────────────────────────────────────────────────────
+    // Kick off the reveal sequence.
+    const tw = Typewriter.mount({
+      psEl:     document.querySelector('.ps-sig'),
+      nameEl:   document.querySelector('.full-name'),
+      navEls:   document.querySelectorAll('nav a'),
+      bodyRoot: document.querySelector('.tab.active'),
+    });
+
+    // Tab switch — hands off to Typewriter for replay-or-skip logic.
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        const tabId = link.dataset.tab;
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        link.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+        tw.showTab(tabId);
+      });
+    });
+
+    // ─────────────────────────────────────────────────────────────────
+    // Email obfuscation. Static HTML shows "user [at] domain" with no
+    // mailto:; the address is only assembled in JS at click-time, so
+    // naive scrapers don't pick it up.
+    // ─────────────────────────────────────────────────────────────────
+    (function hydrateEmail() {
+      const a = document.getElementById('email-link');
+      if (!a) return;
+      const user = a.dataset.u, domain = a.dataset.d;
+      const addr = user + String.fromCharCode(64) + domain;
+      a.querySelector('.email-u').textContent = user;
+      a.querySelector('.email-d').textContent = domain;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        // Swap the rendered " [at] " for a real @ right before navigation,
+        // so someone copying after hover sees the real thing.
+        a.querySelector('.email-at').textContent = '@';
+        location.href = 'mailto:' + addr;
+      });
+      // Also: if someone copies the link text, give them the real address.
+      a.addEventListener('copy', e => {
+        e.preventDefault();
+        e.clipboardData.setData('text/plain', addr);
+      });
+    })();
+
+    // ─────────────────────────────────────────────────────────────────
+    // Show-more toggle helper (used by podcasts + Playing-now tracks).
+    // ─────────────────────────────────────────────────────────────────
+    function setupToggle(containerId, toggleId, defaultCount) {
+      const container = document.getElementById(containerId);
+      const toggle = document.getElementById(toggleId);
+      if (!container || !toggle) return;
+      const items = container.querySelectorAll('.track');
+      const hiddenCount = items.length - defaultCount;
+      if (hiddenCount <= 0) { toggle.style.display = 'none'; return; }
+      let expanded = false;
+      toggle.textContent = 'Show ' + hiddenCount + ' more';
+      toggle.addEventListener('click', () => {
+        expanded = !expanded;
+        items.forEach((item, i) => {
+          item.style.display = (expanded || i < defaultCount) ? '' : 'none';
         });
+        toggle.textContent = expanded ? 'Show less' : 'Show ' + hiddenCount + ' more';
+      });
+    }
+    setupToggle('podcasts-container', 'podcasts-toggle', 2);
 
-        // Toggle for podcasts (default 2)
-        function setupToggle(containerId, toggleId, defaultCount) {
-            const container = document.getElementById(containerId);
-            const toggle = document.getElementById(toggleId);
-            if (!container || !toggle) return;
-            const items = container.querySelectorAll('.track');
-            const total = items.length;
-            const hiddenCount = total - defaultCount;
-            if (hiddenCount <= 0) { toggle.style.display = 'none'; return; }
-            let expanded = false;
-            toggle.textContent = hiddenCount + ' more';
-            toggle.addEventListener('click', () => {
-                expanded = !expanded;
-                items.forEach((item, i) => {
-                    item.style.display = (expanded || i < defaultCount) ? '' : 'none';
-                });
-                toggle.textContent = expanded ? 'show less' : hiddenCount + ' more';
-            });
+    // ─────────────────────────────────────────────────────────────────
+    // Playing now — fetch recently-listened tracks from Supabase edge fn.
+    // ─────────────────────────────────────────────────────────────────
+    fetch('https://ntazcbtojtoipnltifew.supabase.co/functions/v1/spotify-recent')
+      .then(res => res.json())
+      .then(tracks => {
+        const el = document.getElementById('spotify-tracks');
+        if (!tracks.length) {
+          el.innerHTML = '<p class="topic-desc">Nothing recent.</p>';
+          return;
         }
-        setupToggle('podcasts-container', 'podcasts-toggle', 2);
+        const defaultVisible = 3;
+        let html = tracks.map((t, i) =>
+          `<div class="track" data-idx="${i}" ${i >= defaultVisible ? 'style="display:none;"' : ''}>
+            <iframe src="https://open.spotify.com/embed/track/${t.id}?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>`
+        ).join('');
+        const hiddenCount = Math.max(0, tracks.length - defaultVisible);
+        if (hiddenCount > 0) {
+          html += `<a class="toggle-link" id="songs-toggle" href="javascript:void(0)">Show ${hiddenCount} more</a>`;
+        }
+        el.innerHTML = html;
+        if (hiddenCount > 0) setupToggle('spotify-tracks', 'songs-toggle', defaultVisible);
+      })
+      .catch(() => {
+        document.getElementById('spotify-tracks').innerHTML =
+          '<p class="topic-desc">Couldn\'t load tracks.</p>';
+      });
 
-        // Spotify recently listened (default 3)
-        fetch('https://ntazcbtojtoipnltifew.supabase.co/functions/v1/spotify-recent')
-            .then(res => res.json())
-            .then(tracks => {
-                const el = document.getElementById('spotify-tracks');
-                if (!tracks.length) {
-                    el.innerHTML = '<p class="topic-desc">Nothing recent.</p>';
-                    return;
-                }
-                const defaultVisible = 3;
-                let html = tracks.map((t, i) =>
-                    `<div class="track" data-idx="${i}" ${i >= defaultVisible ? 'style="display:none;"' : ''}>
-                        <iframe src="https://open.spotify.com/embed/track/${t.id}?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>`
-                ).join('');
-                const hiddenCount = Math.max(0, tracks.length - defaultVisible);
-                if (hiddenCount > 0) {
-                    html += `<a class="toggle-link" id="songs-toggle" href="javascript:void(0)">${hiddenCount} more</a>`;
-                }
-                el.innerHTML = html;
-                if (hiddenCount > 0) {
-                    setupToggle('spotify-tracks', 'songs-toggle', defaultVisible);
-                }
-            })
-            .catch(() => {
-                document.getElementById('spotify-tracks').innerHTML =
-                    '<p class="topic-desc">Couldn\'t load tracks.</p>';
-            });
-    </script>
+  </script>
 </body>
 </html>
