@@ -253,6 +253,10 @@
         this._finishPsSignature(this.psEl, t + c.gapAfterBody);
       }
 
+      // All content has been split into opacity:0 spans; safe to drop the
+      // pre-hide that was protecting against the first-paint flash.
+      document.documentElement.classList.remove('js-anim');
+
       this.endTime = t;
     }
 

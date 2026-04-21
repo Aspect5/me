@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js-anim');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f0e6d0">
 <title>Peter Seelman</title>
@@ -149,6 +150,13 @@
      Classes are applied by typewriter.js. CSS only defines visuals
      (starting opacity, cursor bar) — all timing is in JS. */
   .full-name { white-space: nowrap; }
+
+  /* Pre-hide animated regions until typewriter.js has wrapped their text
+     in opacity:0 spans. Without this, the fully rendered page flashes for
+     one frame before the reveal starts. Cleared at the end of start(). */
+  html.js-anim .full-name,
+  html.js-anim nav,
+  html.js-anim .tab.active { visibility: hidden; }
 
   /* Every typed unit (char or word) starts invisible. WAAPI fills opacity
      to 1 at the unit's scheduled delay. */
@@ -458,7 +466,7 @@
     <div class="footer">© Peter Charles Seelman, 2026.</div>
   </div>
 
-  <script src="typewriter.js?v=6"></script>
+  <script src="typewriter.js?v=7"></script>
   <script>
     // ─────────────────────────────────────────────────────────────────
     // Wire-up: tweak toggles + typewriter reveal + tab switching.
