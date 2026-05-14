@@ -22,26 +22,26 @@
     // expose each offset here so CSS variables on the element can drive
     // @keyframes delays, keeping timing in one place.
     ps: {
-      charOffsets:  [0.30, 0.55, 0.80, 1.05],  // c1, c2, c3, c4 appear times
-      caretOffsets: [0.30, 0.55, 0.80, 1.05],  // k1-k4 appear times
-      caretKillAt:  1.30,                      // when k4 caret disappears
+      charOffsets:  [0.22, 0.40, 0.58, 0.76],  // c1, c2, c3, c4 appear times
+      caretOffsets: [0.22, 0.40, 0.58, 0.76],  // k1-k4 appear times
+      caretKillAt:  0.96,                      // when k4 caret disappears
       dotFadeAt:    null,                      // set dynamically to (endTime + gapAfterBody)
     },
 
     // ── Name: character-by-character ──
-    nameStart: 1.3,
-    charStep:  0.055,
-    charStepFast: 0.022,
+    nameStart: 0.95,
+    charStep:  0.04,
+    charStepFast: 0.018,
 
     // ── Gaps between phases ──
-    gapBeforeNav:  0.1,
-    gapBeforeBody: 0.1,
-    gapAfterBody:  0.4,
+    gapBeforeNav:  0.08,
+    gapBeforeBody: 0.08,
+    gapAfterBody:  0.35,
 
     // ── Body cascade: word-by-word ──
-    wordStep:      0.08,
-    wordStepFast:  0.022,
-    blockStagger:  0.06,
+    wordStep:      0.06,
+    wordStepFast:  0.018,
+    blockStagger:  0.045,
   };
 
   // ─────────────────────────────────────────────────────────────────────────
