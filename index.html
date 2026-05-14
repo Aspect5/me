@@ -309,6 +309,7 @@
   /* Skip-to-content link — visible only when focused, for keyboard users. */
   .skip-link {
     position: absolute;
+    top: 0;
     left: 0;
     background: var(--text-color);
     color: var(--bg-color);
@@ -317,7 +318,7 @@
     border-bottom: none;
     transform: translateY(-100%);
   }
-  .skip-link:focus { transform: translateY(0); top: 0; }
+  .skip-link:focus { transform: translateY(0); }
 
   /* Topic name with optional forced line break on desktop. */
   .topic-name .br-desktop::before { content: " "; }
