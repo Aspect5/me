@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f0e6d0">
+<title>The EZIE Balloon Project — Peter Seelman</title>
+<meta name="description" content="weather balloon flights with an
+EZIE-Mag magnetometer, and the hunt for 24 lost miles of GPS track">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg-color: #f0e6d0;
+    --text-color: #2c2925;
+    --text-muted: #736c61;
+    --link-color: #d93c18;
+    --link-hover: #a12a0f;
+  }
+  html { background-color: var(--bg-color); }
+  body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    max-width: 700px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link-color); }
+  a:hover { color: var(--link-hover); }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .note-desc { color: var(--text-muted); margin-top: 0; }
+  .crumb { margin-bottom: 2rem; }
+  .footer { margin-top: 3rem; color: var(--text-muted); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <div class="crumb"><a href="https://peterseelman.com">peterseelman.com</a> / <a href="index.html">notes</a></div>
+  <h1>The EZIE Balloon Project</h1>
+  <p class="note-desc">weather balloon flights with an EZIE-Mag
+magnetometer, and the hunt for 24 lost miles of GPS track</p>
+  <p>In 2023 I designed, built, and launched a scientific weather
+  balloon payload around an EZIE-Mag, the magnetometer kit from the
+  outreach program for <a
+  href="https://science.nasa.gov/mission/ezie/">NASA’s EZIE mission</a>
+  at JHU APL. The launch went through the University of Maryland’s
+  Nearspace program. The payload came back. The GPS track didn’t, at
+  least not all of it: there was a 20 mile gap right in the middle of
+  the flight.</p>
+  <p>I spent an independent study at JHU trying to reconstruct the
+  missing positions from the data I did have. Kalman filter research,
+  double integration of the accelerometer, then single integration using
+  ground speed with midpoint updates, with proper geodetic to ECEF
+  coordinate transforms so Earth’s curvature didn’t bite me. The
+  estimates kept drifting off axis, and the root cause turned out to be
+  physical, not mathematical: the accelerometer sampled too slowly to
+  capture how violently the wind was throwing the payload around. My
+  advisor and I decided the reconstruction wasn’t accurate enough to
+  publish, which was its own lesson.</p>
+  <p>Everything from the project lives in <a
+  href="https://github.com/Aspect5/EZIE-Balloon-Public">EZIE-Balloon-Public</a>:
+  the flight data, <a
+  href="https://github.com/Aspect5/EZIE-Balloon-Public/blob/main/docs/independent_study_writeup.md">the
+  full writeup</a>, the SmallSat 2024 paper, and the poster from
+  measuring the April 2024 total eclipse with EZIE-Mags along the path
+  of totality.</p>
+  <div class="footer">© Peter Charles Seelman, 2026.</div>
+</body>
+</html>
