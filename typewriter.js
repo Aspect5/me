@@ -190,6 +190,7 @@
       this.activeAnimations = new Map(); // tabId → Animation[]
       this.endTime = 0;
       this._started = false;
+      this._skipped = false;
     }
 
     _mergeConfig(base, over) {
@@ -269,7 +270,7 @@
       // running invisibly.
       this._cancelAllExcept(tabId);
 
-      if (this.revealedTabs.has(tabId)) {
+      if (this._skipped || this.revealedTabs.has(tabId)) {
         this._forceRevealed(tab);
         return;
       }
@@ -279,6 +280,27 @@
         blockStagger: c.blockStagger / 2,
       });
       this.revealedTabs.add(tabId);
+    }
+
+    /**
+     * Fast-forward everything to its final state. We finish (not cancel)
+     * every tracked animation so `fill: forwards` end states stick and
+     * `onfinish` class flips (.tw-block-hidden removal, .tw-link-on) still
+     * fire, then settle the CSS-driven P.S. signature. Idempotent — calling
+     * after the reveal has finished is a no-op.
+     */
+    skip() {
+      for (const anims of this.activeAnimations.values()) {
+        anims.forEach(a => {
+          if (a.playState === 'finished') return;
+          try { a.finish(); } catch {}
+        });
+      }
+      if (this.psEl) this._skipPsSignature(this.psEl);
+      // Future tab switches force-reveal instead of replaying (see showTab).
+      this._skipped = true;
+      // Normally cleared at the end of start(); harmless if already gone.
+      document.documentElement.classList.remove('js-anim');
     }
 
     // ── Internals ──
@@ -444,6 +466,23 @@
       // adding a class that applies the final dot-fade animation.
       ps.classList.add('tw-ps-finishing');
     }
+
+    /**
+     * Jump the signature to its settled state. Every @keyframe delay is
+     * pushed far into the past, so each animation's `forwards` fill applies
+     * immediately: P and S on, dots faded out, carets killed — the same end
+     * state the natural timeline reaches.
+     */
+    _skipPsSignature(ps) {
+      const past = '-10s';
+      for (let i = 1; i <= 4; i++) {
+        ps.style.setProperty(`--ps-c${i}`, past);
+        ps.style.setProperty(`--ps-k${i}`, past);
+      }
+      ps.style.setProperty('--ps-caret-kill', past);
+      ps.style.setProperty('--ps-dot-fade', past);
+      ps.classList.add('tw-ps-finishing');
+    }
   }
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -455,6 +494,10 @@
   Typewriter.mount = (opts) => {
     const tw = new Typewriter(opts);
     tw.start();
+    // Double-click anywhere fast-forwards the whole reveal. No
+    // preventDefault — once skipped this is a no-op, so normal
+    // double-click word selection keeps working.
+    document.addEventListener('dblclick', () => tw.skip());
     return tw;
   };
 
