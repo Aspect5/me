@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f0e6d0">
+<title>Simulating Quantum Magnetism on Noisy Quantum
+Computers — Peter Seelman</title>
+<meta name="description" content="comparing Trotter-Suzuki and qDRIFT on
+real IBM hardware during my APL quantum research">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg-color: #f0e6d0;
+    --text-color: #2c2925;
+    --text-muted: #736c61;
+    --link-color: #d93c18;
+    --link-hover: #a12a0f;
+  }
+  html { background-color: var(--bg-color); }
+  body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    max-width: 700px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link-color); }
+  a:hover { color: var(--link-hover); }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .note-desc { color: var(--text-muted); margin-top: 0; }
+  .crumb { margin-bottom: 2rem; }
+  .footer { margin-top: 3rem; color: var(--text-muted); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <div class="crumb"><a href="https://peterseelman.com">peterseelman.com</a> / <a href="index.html">notes</a></div>
+  <h1>Simulating Quantum Magnetism on Noisy Quantum Computers</h1>
+  <p class="note-desc">comparing Trotter-Suzuki and qDRIFT on real IBM
+hardware during my APL quantum research</p>
+  <p>This started in the Quantum Education in Science and Technology
+  program at JHU APL’s ASPIRE internship, where I was introduced to
+  programming cloud-based quantum computers. With a small team I
+  compared two algorithms for simulating quantum magnetism: First Order
+  Trotter-Suzuki decomposition (FOTS), the deterministic workhorse, and
+  qDRIFT, a newer randomized compilation routine that weights operations
+  by their importance to the simulation.</p>
+  <p>We built both in Qiskit and simulated the dynamics of a
+  one-dimensional Ising model, then ran the same experiments on real IBM
+  Quantum devices. The interesting result was about noise: with fixed
+  initial states and observables, qDRIFT had more algorithmic error than
+  FOTS in noiseless simulation, but on actual hardware the gap mostly
+  closed, meaning qDRIFT’s results were less affected by the noise of a
+  real machine. And when the Heisenberg model had one dominant
+  ferromagnetic coupling, qDRIFT outperformed FOTS outright. Since
+  qDRIFT’s gate count scales with the sum of Hamiltonian coefficients
+  rather than the number of terms, that tradeoff matters for chemical
+  systems with millions of terms.</p>
+  <p>We presented this at the IEEE Integrated STEM Education Conference
+  in March 2023. The <a
+  href="https://peterseelman.com/ISEC%20Poster%20FINAL%205.pdf">poster</a>
+  and <a
+  href="https://peterseelman.com/1570884393%20abstract.pdf">extended
+  abstract</a> are on my site.</p>
+  <div class="footer">© Peter Charles Seelman, 2026.</div>
+</body>
+</html>
